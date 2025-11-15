@@ -1,0 +1,31 @@
+[2025-11-08T16:56:39.581+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_transform.dbt_run scheduled__2025-11-08T16:46:25.472716+00:00 [queued]>
+[2025-11-08T16:56:39.591+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_transform.dbt_run scheduled__2025-11-08T16:46:25.472716+00:00 [queued]>
+[2025-11-08T16:56:39.591+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-11-08T16:56:39.610+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_run> on 2025-11-08 16:46:25.472716+00:00
+[2025-11-08T16:56:39.624+0000] {standard_task_runner.py:57} INFO - Started process 11216 to run task
+[2025-11-08T16:56:39.629+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dbt_transform', 'dbt_run', 'scheduled__2025-11-08T16:46:25.472716+00:00', '--job-id', '581', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmps043m27_']
+[2025-11-08T16:56:39.633+0000] {standard_task_runner.py:85} INFO - Job 581: Subtask dbt_run
+[2025-11-08T16:56:39.735+0000] {task_command.py:415} INFO - Running <TaskInstance: dbt_transform.dbt_run scheduled__2025-11-08T16:46:25.472716+00:00 [running]> on host 8ce966dfa5f8
+[2025-11-08T16:56:39.867+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_transform' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T16:46:25.472716+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-08T16:46:25.472716+00:00'
+[2025-11-08T16:56:39.871+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-08T16:56:39.874+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec dbt_***_project-dbt-1 dbt run']
+[2025-11-08T16:56:39.899+0000] {subprocess.py:86} INFO - Output:
+[2025-11-08T16:56:42.251+0000] {subprocess.py:93} INFO - [0m16:56:42  Running with dbt=1.8.7
+[2025-11-08T16:56:42.835+0000] {subprocess.py:93} INFO - [0m16:56:42  Registered adapter: sqlserver=1.8.7
+[2025-11-08T16:56:45.143+0000] {subprocess.py:93} INFO - [0m16:56:45  Found 10 models, 18 data tests, 13 sources, 614 macros
+[2025-11-08T16:56:45.154+0000] {subprocess.py:93} INFO - [0m16:56:45
+[2025-11-08T16:56:45.429+0000] {subprocess.py:93} INFO - [0m16:56:45
+[2025-11-08T16:56:45.431+0000] {subprocess.py:93} INFO - [0m16:56:45  Finished running  in 0 hours 0 minutes and 0.27 seconds (0.27s).
+[2025-11-08T16:56:45.434+0000] {subprocess.py:93} INFO - [0m16:56:45  Encountered an error:
+[2025-11-08T16:56:45.435+0000] {subprocess.py:93} INFO - Database Error
+[2025-11-08T16:56:45.436+0000] {subprocess.py:93} INFO -   ('28000', "[28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user 'imrandbtnew'. (18456) (SQLDriverConnect)")
+[2025-11-08T16:56:47.166+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-11-08T16:56:47.188+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-11-08T16:56:47.193+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=dbt_transform, task_id=dbt_run, execution_date=20251108T164625, start_date=20251108T165639, end_date=20251108T165647
+[2025-11-08T16:56:47.226+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 581 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 11216)
+[2025-11-08T16:56:47.253+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-11-08T16:56:47.293+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
